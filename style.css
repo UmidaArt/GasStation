@@ -63,6 +63,8 @@
     width: 252px;
     height: 40px;
     padding: 5px;
+    display: block;
+    font-weight: 700;
 }
 h3 {
     margin-bottom: 10px;

@@ -9,46 +9,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@700&family=Roboto&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./media.css">
 </head>
 <body>
 <section>
     <div class="container">
         <div class="mainImg">
-            <img src="images/img.png" class="img">
+            <img src="images/img.png" class="img" alt="">
             <h2 class="mainTitle">Petrol bishkek</h2>
         </div>
         <div class="stations">
             <div class="block">
                 <div class="gasStation1">
-                    <img src="images/img_1.png">
+                    <img src="images/img_1.png" alt="">
                 </div>
                 <div class="inputDiv">
-                    <label>AI95:</label>
-                    <input class="gasStation1Input" placeholder="Price/1L">
+                    <label for="gazStation95">AI95:</label>
+                    <input id="gazStation95" class="gasStation1Input" placeholder="Price/1L">
                 </div>
             </div>
             <div class="block">
                 <div class="gasStation2">
-                    <img src="images/img_1.png">
+                    <img src="images/img_1.png" alt="">
                 </div>
                 <div class="inputDiv">
-                    <label>AI98:</label>
-                    <input class="gasStation2Input" placeholder="Price/1L">
+                    <label for="gazStation98">AI98:</label>
+                    <input id="gazStation98" class="gasStation2Input" placeholder="Price/1L">
                 </div>
             </div>
             <div class="block">
                 <div class="gasStation3">
-                    <img src="images/img_1.png">
+                    <img src="images/img_1.png" alt="">
                 </div>
                 <div class="inputDiv">
-                    <label>AI100:</label>
-                    <input class="gasStation3Input" placeholder="Price/1L">
+                    <label for="gazStation100">AI100:</label>
+                    <input id="gazStation100" class="gasStation3Input" placeholder="Price/1L">
                 </div>
             </div>
         </div>
         <div class="info">
-            <h3 class="totalLiters">Total liters:</h3>
-            <input class="totalLitersInput">
+            <label for="totalLiter" class="totalLiters">Total liters:</label>
+            <input class="totalLitersInput" id="totalLiter">
             <h3 class="bill">Bill:</h3>
             <h3 class="petrolType">Petrol type:</h3>
             <h3 class="priceOneLiter">Price for 1 liter:</h3>
