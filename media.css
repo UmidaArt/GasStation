@@ -1,3 +1,18 @@
-@media  {
-    
+@media (max-width: 900px) {
+    .container {
+        max-width: 730px;
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+    .inputDiv {
+        width: 150px;
+        padding: 1px 10px;
+    }
+
+}
+@media (max-width: 576px) {
+
 }
