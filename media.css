@@ -8,8 +8,10 @@
         max-width: 540px;
     }
     .inputDiv {
-        width: 150px;
         padding: 1px 10px;
+    }
+    .img img {
+        object-fit: contain;
     }
 
 }
