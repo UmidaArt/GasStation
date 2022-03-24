@@ -1,43 +1,46 @@
-const gasStation1Input = document.querySelector('.gasStation1Input')
-const gasStation2Input = document.querySelector('.gasStation2Input')
-const gasStation3Input = document.querySelector('.gasStation3Input')
-const gasStation1 = document.querySelector('.gasStation1')
-const gasStation2 = document.querySelector('.gasStation2')
-const gasStation3 = document.querySelector('.gasStation3')
+const petrolStationInput = document.querySelectorAll('.gasStationInput')
+const gasStations = document.querySelectorAll('.gasStation')
 const totalLitersInput = document.querySelector('.totalLitersInput')
-const petrolType = document.querySelector('.petrolType')
-const priceOneLiter = document.querySelector('.priceOneLiter')
-const totalLiter = document.querySelector('.totalLiter')
-const totalPrice = document.querySelector('.totalPrice')
+const petrolTypeBill = document.querySelector('.petrolType')
+const priceOneLiterBill = document.querySelector('.priceOneLiter')
+const totalLiterBill = document.querySelector('.totalLiter')
+const vatBill = document.querySelector('.vat')
+const totalPriceBill = document.querySelector('.totalPrice')
+const btn = document.querySelector('.btn')
+
+const petrols = ['Ai95', 'AI98', 'AI100']
+let petrolType = 'AI95'
+let oneLiterPrice = 0
+let vat = 5
 
 
-gasStation1.addEventListener('click', () => {
-    document.querySelector('.gasStation1').classList.toggle('blue')
-    let value = gasStation1Input.value
-    let totalLiters = totalLitersInput.value
-    let price = value * totalLiters
-    petrolType.textContent = 'Petrol type: AI95'
-    priceOneLiter.textContent = `Price for 1 liter: ${value} $`
-    totalLiter.textContent =`Total liters: ${totalLiters}`
-    totalPrice.textContent = `Total price: ${price * 0.05 + price} $`
+gasStations.forEach((petrolStation,idx) => {
+    if (petrolStation.classList.contains('active')) {
+        clickPetrol()
+    }
+    petrolStation.addEventListener('click', () => {
+        gasStations.forEach(item => item.classList.remove('active'))
+        petrolStation.classList.add('active')
+        clickPetrol()
+        petrolType = petrols[idx]
+        oneLiterPrice = petrolStationInput[idx].value
+    })
 })
-gasStation2.addEventListener('click', () => {
-    document.querySelector('.gasStation2').classList.toggle('blue')
-    let value = gasStation2Input.value
-    let totalLiters = totalLitersInput.value
-    let price = value * totalLiters
-    petrolType.textContent ='Petrol type: AI98'
-    priceOneLiter.textContent = `Price for 1 liter: ${value} $`
-    totalLiter.textContent =`Total liters: ${totalLiters}`
-    totalPrice.textContent = `Total price: ${price * 0.05 + price} $`
+
+btn.addEventListener('click', () => {
+    if (oneLiterPrice.length === 0) {
+        alert('Выведите цену топливо')
+    } else if (totalLitersInput.value.length === 0) {
+        alert('Введите количество литров')
+    } else {
+       clickPetrol()
+    }
+
 })
-gasStation3.addEventListener('click', () => {
-    document.querySelector('.gasStation3').classList.toggle('blue')
-    let value = gasStation3Input.value
-    let totalLiters = totalLitersInput.value
-    let price = value * totalLiters
-    petrolType.textContent = 'Petrol type: AI100'
-    priceOneLiter.textContent = `Price for 1 liter: ${value} $`
-    totalLiter.textContent =`Total liters: ${totalLiters}`
-    totalPrice.textContent = `Total price: ${price * 0.05 + price} $`
-})
+function clickPetrol () {
+    petrolTypeBill.textContent = petrolType
+    priceOneLiterBill.textContent = oneLiterPrice
+    totalLiterBill.textContent = totalLitersInput.value
+    vatBill.textContent = `${vat}%`
+    totalPriceBill.textContent = (oneLiterPrice * totalLitersInput.value) * 1.05.toFixed(2)
+}
